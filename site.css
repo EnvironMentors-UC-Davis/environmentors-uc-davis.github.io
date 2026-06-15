@@ -97,8 +97,29 @@ footer a{color:var(--ink);text-decoration:none}
 footer a:hover{color:var(--accent)}
 footer .links a{margin-left:22px}
 
+/* lightbox (click any photo to zoom) */
+.zoomable{cursor:zoom-in}
+.lightbox{position:fixed;inset:0;background:rgba(15,12,8,.93);display:none;align-items:center;justify-content:center;z-index:100;padding:20px;cursor:zoom-out}
+.lightbox.open{display:flex}
+.lightbox img{max-width:96vw;max-height:90vh;border-radius:3px;box-shadow:0 12px 60px rgba(0,0,0,.55)}
+.lightbox figcaption{position:absolute;left:0;right:0;bottom:18px;text-align:center;color:#e9e1d0;font-size:13px;letter-spacing:.3px;padding:0 20px}
+.lb-close{position:absolute;top:14px;right:20px;background:none;border:0;color:#fff;font-size:40px;line-height:1;cursor:pointer;opacity:.85}
+.lb-close:hover{opacity:1}
+
 @media(max-width:760px){
-  .steps,.specs .wrap{grid-template-columns:1fr}
-  .spec+.spec{border-left:0;padding-left:0;border-top:1px solid var(--line)}
-  .top .nav a{margin-left:16px}
+  .wrap{padding:0 24px}
+  .top{padding:16px 24px}
+  .top .nav a{margin-left:14px}
+  .hero{padding:52px 24px 36px}
+  .heroimg{margin-top:36px}
+  .how,.gallery,.signup{padding:54px 24px}
+  .quote{padding:60px 24px}
+  .specs{margin-top:44px}
+  .steps{grid-template-columns:1fr;gap:30px}
+  .specs .wrap{grid-template-columns:1fr 1fr}
+  .spec{padding:20px 8px;text-align:center}
+  .spec, .spec + .spec{border-left:0;padding-left:8px}
+  .spec:nth-child(n+3){border-top:1px solid var(--line)}
+  .gal-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .gal-grid .g{height:150px}
 }

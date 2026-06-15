@@ -31,7 +31,7 @@
 </section>
 
 <div class="heroimg wrap">
-  <div class="frame"></div>
+  <div class="frame" data-full="photos/panama-talk.jpg" data-cap="A mentee presents her research at the GCSE International Science Fair, Panama, 2026."></div>
   <div class="cap">A mentee presents her research at the GCSE International Science Fair, Panama, 2026.</div>
 </div>
 
@@ -70,10 +70,10 @@
     </div>
     <p class="gal-sub">Our 2026 cohort presented at the GCSE International Science Fair. One student won first place overall, and another won best presentation.</p>
     <div class="gal-grid">
-      <figure><div class="g" style="background-image:url('photos/panama-poster.jpg')"></div><figcaption>A best-presentation research poster.</figcaption></figure>
-      <figure><div class="g" style="background-image:url('photos/panama-present.jpg')"></div><figcaption>Presenting a project to the fair judges.</figcaption></figure>
-      <figure><div class="g" style="background-image:url('photos/panama-team.jpg')"></div><figcaption>The UC&nbsp;Davis cohort at the EnvironMentors banner.</figcaption></figure>
-      <figure><div class="g" style="background-image:url('photos/panama-cohort.jpg')"></div><figcaption>Chapters from across the network, together in Panama.</figcaption></figure>
+      <figure><div class="g" style="background-image:url('photos/panama-poster.jpg')" data-full="photos/panama-poster.jpg" data-cap="A best-presentation research poster."></div><figcaption>A best-presentation research poster.</figcaption></figure>
+      <figure><div class="g" style="background-image:url('photos/panama-present.jpg')" data-full="photos/panama-present.jpg" data-cap="Presenting a project to the fair judges."></div><figcaption>Presenting a project to the fair judges.</figcaption></figure>
+      <figure><div class="g" style="background-image:url('photos/panama-team.jpg')" data-full="photos/panama-team.jpg" data-cap="The UC Davis cohort at the EnvironMentors banner."></div><figcaption>The UC&nbsp;Davis cohort at the EnvironMentors banner.</figcaption></figure>
+      <figure><div class="g" style="background-image:url('photos/panama-cohort.jpg')" data-full="photos/panama-cohort.jpg" data-cap="Chapters from across the network, together in Panama."></div><figcaption>Chapters from across the network, together in Panama.</figcaption></figure>
     </div>
   </div>
 </section>
@@ -97,5 +97,27 @@
     </span>
   </div>
 </footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" aria-label="Close">&times;</button>
+  <img alt="">
+  <figcaption></figcaption>
+</div>
+
+<script>
+(function(){
+  var lb=document.getElementById('lightbox'),
+      img=lb.querySelector('img'),
+      cap=lb.querySelector('figcaption');
+  function open(src,c){img.src=src;cap.textContent=c||'';lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+  function close(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');img.src='';document.body.style.overflow='';}
+  document.querySelectorAll('[data-full]').forEach(function(el){
+    el.classList.add('zoomable');
+    el.addEventListener('click',function(){open(el.getAttribute('data-full'),el.getAttribute('data-cap'));});
+  });
+  lb.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
 
 </body></html>
