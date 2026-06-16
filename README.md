@@ -41,4 +41,4 @@ replacing the old SiteFarm site.
 
 ## Editing
 
-Plain static HTML/CSS — edit the `.html` files and `site.css` directly, commit, push to `master`; Pages redeploys automatically. Keep content **public-safe and generic** (no rosters, contact info, completed forms, or minors' names/faces without consent — those stay in access-controlled Google Drive and are only linked).
+Plain static HTML/CSS — edit the `.html` files and `site.css` directly, commit, push to `master`; Pages redeploys automatically. Keep content **public-safe** (no rosters, contact info, completed forms/applications, or medical data — those stay in access-controlled Google Drive and are only linked). Student faces, names, and project posters are fine to feature: all participants sign a media/photo release waiver.
