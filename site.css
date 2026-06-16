@@ -107,6 +107,8 @@ img{max-width:100%;display:block}
 .page p{font-size:16px;color:var(--ink2);margin-top:10px}
 .faq-item{border-top:1px solid var(--line);padding:26px 0}
 .faq-item:last-child{border-bottom:1px solid var(--line)}
+.support .claim{font-size:clamp(19px,2.1vw,24px);color:var(--ink);margin-top:18px;line-height:1.4}
+.support .claim strong{color:var(--accent);font-weight:700}
 .support section{margin-top:8px}
 .support .btn{margin-top:18px}
 .ways{margin:16px 0 0;padding:0;list-style:none;counter-reset:w}
