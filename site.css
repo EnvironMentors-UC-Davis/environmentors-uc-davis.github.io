@@ -102,6 +102,10 @@ img{max-width:100%;display:block}
 .page p{font-size:16px;color:var(--ink2);margin-top:10px}
 .faq-item{border-top:1px solid var(--line);padding:26px 0}
 .faq-item:last-child{border-bottom:1px solid var(--line)}
+.support section{margin-top:8px}
+.support .btn{margin-top:18px}
+.ack{margin-top:56px;border-top:1px solid var(--line);padding-top:22px}
+.ack p{font-size:13px;color:var(--ink2);max-width:62ch}
 .faq-item h3{font-size:20px;font-weight:600}
 .faq-item p{margin-top:10px}
 .todo{display:inline-block;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#9a5; color:var(--accent2);border:1px solid var(--accent2);border-radius:3px;padding:2px 8px;margin-left:8px;vertical-align:middle}
