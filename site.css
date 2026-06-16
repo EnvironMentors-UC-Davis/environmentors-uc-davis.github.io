@@ -116,6 +116,12 @@ img{max-width:100%;display:block}
 .ways li::before{content:counter(w);position:absolute;left:0;top:15px;width:28px;height:28px;border:1px solid var(--accent);color:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
 .ways li strong{color:var(--ink)}
 
+/* mentor list */
+.mentor-list{list-style:none;padding:0;margin:16px 0 8px;display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+.mentor-list li{padding:13px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:16px}
+.mentor-list li span{color:var(--ink2);font-size:13.5px;text-align:right;white-space:nowrap}
+@media(max-width:600px){.mentor-list{grid-template-columns:1fr}}
+
 /* blog list */
 .post-card{display:grid;grid-template-columns:300px 1fr;gap:24px;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-top:28px;background:var(--panel)}
 .post-card .pc-img{background-size:cover;background-position:center;min-height:200px}
