@@ -1,0 +1,13 @@
+Photo credits for recruit-2026.html
+
+photos/nyc-skyline.jpg
+  "Lower Manhattan from Jersey City November 2014 panorama 3"
+  by King of Hearts, Wikimedia Commons, CC BY-SA 3.0
+  https://commons.wikimedia.org/wiki/File:Lower_Manhattan_from_Jersey_City_November_2014_panorama_3.jpg
+  (resized; license requires attribution — keep this file with the deck)
+
+photos/team-grey.jpg — monroelab.org (lab website avatar)
+photos/team-erwan.jpg — official UC Davis LAWR faculty profile photo
+  https://www.lawr.ucdavis.edu/people/erwan-monier
+photos/marissa-panama.jpg — program photo, Panama 2026 (media release on file)
+All other photos: program photos from the environmentors-landing photos/ folder.

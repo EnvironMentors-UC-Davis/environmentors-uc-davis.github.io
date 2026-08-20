@@ -1,0 +1,306 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EnvironMentors — Pioneer High School, Fall 2026</title>
+<meta name="robots" content="noindex">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:#2a2622}
+  .deck{display:flex;height:100vh;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scroll-behavior:smooth}
+  .deck::-webkit-scrollbar{display:none}
+  .slide{flex:0 0 100vw;height:100vh;scroll-snap-align:center;position:relative;display:flex;align-items:center;padding:6vh 6vw}
+  /* text slides */
+  .s-text{background:#f6f2ec}.wrap{max-width:min(1300px,90vw)}
+  .eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:clamp(.9rem,1.4vw,1.6rem);color:#9c8568;margin-bottom:1.3em}
+  h1{font-family:Georgia,serif;font-weight:600;font-size:clamp(3rem,7vw,8.5rem);line-height:1.04;letter-spacing:-.01em;margin:0 0 .4em;max-width:17ch}
+  h2{font-family:Georgia,serif;font-weight:600;font-size:clamp(2.4rem,5.2vw,6rem);line-height:1.05;margin:0 0 .5em}
+  .lead{font-family:Georgia,serif;font-size:clamp(1.5rem,3vw,3.2rem);line-height:1.3;margin:.2em 0 .4em}
+  .s-text p{font-size:clamp(1.3rem,2.3vw,2.5rem);line-height:1.5;max-width:min(58ch,86vw);color:#4a423b}
+  .s-text li{font-size:clamp(1.3rem,2.3vw,2.4rem);line-height:1.45;max-width:min(60ch,86vw);color:#4a423b;margin:.45em 0;margin-left:1.1em}
+  .s-text b{color:#2a2622;font-weight:600}.s-text em{font-style:italic;color:#8a5e3c}
+  .accent{height:3px;width:clamp(46px,4vw,72px);background:#b98a5e;margin:1.1em 0}
+  .small{font-size:clamp(1.05rem,1.6vw,1.8rem);color:#9a8d7e}
+  blockquote{font-family:Georgia,serif;font-style:italic;font-size:clamp(1.4rem,2.6vw,2.9rem);line-height:1.45;color:#4a423b;max-width:min(50ch,86vw);margin:.4em 0}
+  .cite{font-size:clamp(1.05rem,1.6vw,1.8rem);color:#9a8d7e;margin-top:.8em}
+  /* full-bleed image slides */
+  .s-img{padding:0;background:#000}
+  .s-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .s-img .cap{position:absolute;left:0;right:0;bottom:0;padding:14vh 6vw 6vh;color:#fff;
+    background:linear-gradient(0deg,rgba(8,14,10,.86) 0%,rgba(8,14,10,.45) 55%,transparent 100%)}
+  .s-img h2{color:#fff;max-width:22ch}
+  .s-img .sub{font-family:Georgia,serif;font-style:italic;font-size:clamp(1.3rem,2.4vw,2.6rem);color:#e8d9c6}
+  .s-img .credit{position:absolute;right:1.2vw;top:1.2vh;color:rgba(255,255,255,.55);font-size:clamp(.7rem,.9vw,1rem)}
+  /* team cards */
+  .team{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.5vw,40px);margin:1.2em 0;width:100%}
+  .tcard{background:#fff;padding:clamp(18px,2.2vw,34px);box-shadow:0 4px 18px rgba(42,38,34,.08)}
+  .tcard img.ph{object-fit:cover;font-size:0}
+  .card.pcard{padding:0;overflow:hidden;display:flex}
+  .card.pcard img{width:100%;height:100%;object-fit:cover;min-height:180px}
+  .split{display:flex;gap:3vw;align-items:center}
+  .split .txt{flex:1.3;min-width:0}
+  .split img.side{flex:1;max-width:36%;height:auto;box-shadow:0 8px 30px rgba(42,38,34,.18)}
+  @media (max-aspect-ratio:1/1){.split{flex-direction:column}.split img.side{max-width:80%}}
+  .tcard .ph{width:clamp(84px,9vw,140px);height:clamp(84px,9vw,140px);border-radius:50%;background:#e8ddcd;color:#8a5e3c;
+    font-family:Georgia,serif;font-size:clamp(1.8rem,3vw,3.2rem);display:flex;align-items:center;justify-content:center;margin-bottom:.7em}
+  .tcard .nm{font-family:Georgia,serif;font-weight:600;font-size:clamp(1.4rem,2.2vw,2.4rem);line-height:1.15}
+  .tcard .rl{font-size:clamp(1.05rem,1.6vw,1.7rem);color:#8a5e3c;font-style:italic;margin-top:.3em}
+  .tcard .dt{font-size:clamp(1rem,1.4vw,1.5rem);color:#4a423b;margin-top:.5em;line-height:1.35}
+  /* sticky notes */
+  .s-steps{background:#f1ece2;flex-direction:column;justify-content:center;align-items:flex-start}
+  .s-steps .head{margin-bottom:2.2vh}
+  .s-steps .wall{display:flex;flex-wrap:wrap;gap:clamp(12px,1.8vw,26px);justify-content:center;align-items:stretch;width:100%}
+  .note{width:clamp(180px,21vw,300px);min-height:clamp(160px,19vw,260px);padding:clamp(14px,1.6vw,24px);box-shadow:3px 6px 12px rgba(0,0,0,.16);display:flex;flex-direction:column;justify-content:center}
+  .note .t{font-family:Georgia,serif;font-weight:700;font-size:clamp(1.15rem,1.8vw,1.9rem);line-height:1.2;margin-bottom:.35em}
+  .note .d{font-size:clamp(.95rem,1.3vw,1.4rem);line-height:1.35;opacity:.85}
+  .note:nth-child(1){background:#fde9a6;transform:rotate(-2.5deg)}.note:nth-child(2){background:#cdeacb;transform:rotate(1.5deg)}
+  .note:nth-child(3){background:#bfe0ef;transform:rotate(-1deg)}.note:nth-child(4){background:#f6cfcf;transform:rotate(2deg)}
+  .note:nth-child(5){background:#f7d7ab;transform:rotate(-1.8deg)}.note:nth-child(6){background:#dcd0ec;transform:rotate(1.2deg)}
+  /* numbered cards */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,28px);width:100%;margin-top:1.2em}
+  .card{background:#fff;padding:clamp(16px,2vw,30px);border-top:3px solid #b98a5e;box-shadow:0 4px 16px rgba(42,38,34,.07)}
+  .card .n{font-family:Georgia,serif;color:#b98a5e;font-size:clamp(1.1rem,1.6vw,1.7rem)}
+  .card .t{font-family:Georgia,serif;font-weight:600;font-size:clamp(1.25rem,1.9vw,2rem);line-height:1.2;margin:.25em 0 .3em}
+  .card .d{font-size:clamp(1rem,1.4vw,1.5rem);line-height:1.4;color:#4a423b}
+  /* QR close */
+  .close-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(24px,4vw,70px);align-items:center;width:100%}
+  .qrbox{background:#fff;padding:clamp(16px,1.8vw,28px);box-shadow:0 6px 24px rgba(42,38,34,.12);justify-self:center}
+  .qrbox img{display:block;width:clamp(220px,26vw,420px);height:auto;image-rendering:pixelated}
+  .qrbox .u{text-align:center;font-size:clamp(.95rem,1.3vw,1.4rem);color:#9a8d7e;margin-top:.7em}
+  @media (max-aspect-ratio:1/1){.team,.cards,.close-grid{grid-template-columns:1fr}}
+</style></head>
+<body>
+  <div class="deck" id="deck">
+
+    <!-- 1 · Title -->
+    <section class="slide s-img">
+      <img src="photos/panama-team.jpg" alt="The UC Davis EnvironMentors cohort at the EnvironMentors banner">
+      <div class="cap">
+        <div class="eyebrow" style="color:#e8d9c6">UC Davis &times; Pioneer High School</div>
+        <h2 style="font-size:clamp(3rem,7.5vw,9rem)">EnvironMentors</h2>
+        <p class="sub">Your research. A real university. This year.</p>
+      </div>
+    </section>
+
+    <!-- 2 · Q1+Q2 campus -->
+    <section class="slide s-img">
+      <img src="photos/campus.jpg" alt="The UC Davis campus">
+      <div class="cap">
+        <h2>Who&rsquo;s been to Davis?</h2>
+      </div>
+    </section>
+
+    <!-- 4 · Q3 arboretum -->
+    <section class="slide s-img">
+      <img src="photos/arboretum.jpg" alt="The UC Davis Arboretum">
+      <div class="cap">
+        <h2>Walked through the UC&nbsp;Davis Arboretum?</h2>
+      </div>
+    </section>
+
+    <!-- 5 · Q4 farm -->
+    <section class="slide s-img">
+      <img src="photos/farm.jpg" alt="A UC Davis research farm">
+      <div class="cap">
+        <h2>Stood in the middle of a working research farm?</h2>
+      </div>
+    </section>
+
+    <!-- 6 · Q5 lab -->
+    <section class="slide s-img">
+      <img src="photos/lab-science.jpg" alt="Inside a UC Davis laboratory">
+      <div class="cap">
+        <h2>Seen the inside of a real UC&nbsp;Davis lab?</h2>
+      </div>
+    </section>
+
+    <!-- 7 · Punchline -->
+    <section class="slide s-text"><div class="wrap">
+      <h1>By spring, you&rsquo;ll have done all of it.</h1>
+      <div class="accent"></div>
+      <p class="lead">As a researcher, running a project of your own.</p>
+    </div></section>
+
+    <!-- 8 · Team -->
+    <section class="slide s-text"><div class="wrap" style="max-width:min(1500px,94vw)">
+      <div class="eyebrow">Who we are</div>
+      <h2>Your team at UC Davis</h2>
+      <div class="team">
+        <div class="tcard"><img class="ph" src="photos/team-grey.jpg" alt="Grey Monroe">
+          <div class="nm">Grey Monroe</div><div class="rl">Co-Director</div>
+          <div class="dt">Professor, Plant Sciences. Was an EnvironMentors mentor himself as a student.</div></div>
+        <div class="tcard"><img class="ph" src="photos/team-erwan.jpg" alt="Erwan Monier">
+          <div class="nm">Erwan Monier</div><div class="rl">Co-Director</div>
+          <div class="dt">Professor and climate scientist.</div></div>
+        <div class="tcard"><div class="ph">AB</div>
+          <div class="nm">Anne Borger</div><div class="rl">Assistant Program Coordinator</div>
+          <div class="dt">Keeps the whole program running.</div></div>
+      </div>
+      <p class="small">Plus a team of UC&nbsp;Davis graduate-student mentors &mdash; one of them will be yours.</p>
+    </div></section>
+
+    <!-- 9 · The deal -->
+    <section class="slide s-img">
+      <img src="photos/greenhouse.jpg" alt="A Pioneer High School student with her research plants in a UC Davis greenhouse">
+      <div class="cap">
+        <h2>You do real science.</h2>
+        <p class="sub">Your question &mdash; or one you build with your mentor. Real fieldwork, real data. Something that matters for your community or the world.</p>
+      </div>
+    </section>
+
+    <!-- 10 · Last year's projects (stickies) -->
+    <section class="slide s-steps">
+      <div class="head" style="padding-left:2vw">
+        <div class="eyebrow">Last year&rsquo;s projects</div>
+        <h2>Pioneer students studied&hellip;</h2>
+      </div>
+      <div class="wall">
+        <div class="note"><span class="t">Bird diversity</span><span class="d">in the Sacramento River watershed</span></div>
+        <div class="note"><span class="t">Nitrogen</span><span class="d">in surface water and drinking water</span></div>
+        <div class="note"><span class="t">Gravel mining</span><span class="d">and its chemical footprint on a watershed</span></div>
+        <div class="note"><span class="t">Salt tolerance</span><span class="d">in walnut trees</span></div>
+        <div class="note"><span class="t">Your project</span><span class="d">goes here.</span></div>
+      </div>
+    </section>
+
+    <!-- 11 · 1:1 mentor -->
+    <section class="slide s-img">
+      <img src="photos/poster-mentor.jpg" alt="A student and mentor working on a research poster">
+      <div class="cap">
+        <h2>Your own UC&nbsp;Davis mentor</h2>
+        <p class="sub">You&rsquo;re paired 1-on-1 with a graduate student who does this for a living.</p>
+      </div>
+    </section>
+
+    <!-- 12 · Wednesdays / college angle -->
+    <section class="slide s-text"><div class="wrap">
+      <h2>Wednesdays at UC Davis</h2>
+      <ul>
+        <li><b>Every Wednesday, 3&ndash;5&nbsp;pm</b>, on campus. September to May. Free.</li>
+        <li><b>Pizza from Woodstock&rsquo;s.</b> Every week.</li>
+        <li>A year on a university campus <em>before</em> you apply to college &mdash; research experience, a poster, a film, and people at UC&nbsp;Davis who know your work.</li>
+      </ul>
+      <div class="accent"></div>
+      <blockquote>&ldquo;Without joining EnvironMentors, I would not have gained the valuable research skills that I can now take with me to college&hellip;&rdquo;</blockquote>
+      <p class="cite">Anna Callens &middot; Pioneer High School mentee</p>
+    </div></section>
+
+    <!-- 13 · What you'll make -->
+    <section class="slide s-text"><div class="wrap" style="max-width:min(1500px,94vw)">
+      <div class="eyebrow">By the end of the year</div>
+      <h2>You&rsquo;ll have made</h2>
+      <div class="cards" style="grid-template-columns:repeat(4,1fr)">
+        <div class="card"><div class="n">01</div><div class="t">A research plan</div><div class="d">Question, hypothesis, methods &mdash; built with your mentor in the fall.</div></div>
+        <div class="card"><div class="n">02</div><div class="t">A short film</div><div class="d">A 3-minute video about your research, premiered at our winter Film Festival.</div></div>
+        <div class="card"><div class="n">03</div><div class="t">A printed poster</div><div class="d">Presented at the UC&nbsp;Davis EnvironMentors Science Fair in May &mdash; families, judges, the works.</div></div>
+        <div class="card pcard"><img src="photos/presenting.jpg" alt="Students presenting research posters at the science fair"></div>
+      </div>
+    </div></section>
+
+    <!-- 14 · The year, highlights -->
+    <section class="slide s-text"><div class="wrap" style="max-width:min(1500px,94vw)">
+      <div class="eyebrow">Also on the calendar this year</div>
+      <h2>It&rsquo;s not all lab coats</h2>
+      <div class="cards">
+        <div class="card"><div class="n">Sep</div><div class="t">Kickoff</div><div class="d">Campus tour and bowling at the Memorial Union.</div></div>
+        <div class="card"><div class="n">Oct</div><div class="t">Choose your tour</div><div class="d">A research lab, the Student Farm, or the Arboretum &mdash; you pick.</div></div>
+        <div class="card"><div class="n">Oct</div><div class="t">Yolo Bypass</div><div class="d">Field trip: birding in the wetlands.</div></div>
+        <div class="card"><div class="n">Mar</div><div class="t">Film Festival</div><div class="d">Everyone&rsquo;s research films on the big screen.</div></div>
+        <div class="card"><div class="n">May</div><div class="t">Science Fair</div><div class="d">The UC&nbsp;Davis EnvironMentors Science Fair &mdash; your poster, your show.</div></div>
+        <div class="card"><div class="n">May</div><div class="t">Lake Tahoe</div><div class="d">Spring trip to the UC&nbsp;Davis Tahoe science center.</div></div>
+      </div>
+    </div></section>
+
+    <!-- 15 · Marissa -->
+    <section class="slide s-text"><div class="wrap split" style="max-width:min(1500px,94vw)">
+      <div class="txt">
+        <div class="eyebrow">One student&rsquo;s year</div>
+        <h2>Marissa, Pioneer class of 2026</h2>
+        <p>Marissa Bautista spent her senior year studying <b>bird diversity and nonnative species in the Sacramento River watershed</b>, working 1-on-1 with her UC&nbsp;Davis mentor, Marie Klein.</p>
+        <p>In June, she took her poster to the <b>international science fair in Panama</b> &mdash; on a full scholarship.</p>
+        <div class="accent"></div>
+        <blockquote>&ldquo;This group of mentees and mentors, forming this community on campus, is super valuable for anyone.&rdquo;</blockquote>
+        <p class="cite">Marie Klein &middot; Marissa&rsquo;s mentor, UC Davis</p>
+      </div>
+      <img class="side" src="photos/marissa-panama.jpg" alt="Marissa Bautista with her bird-diversity research poster at the international science fair in Panama">
+    </div></section>
+
+    <!-- 16 · Panama: the four -->
+    <section class="slide s-img">
+      <img src="photos/panama-students-collage.jpg" alt="Four Pioneer High School students presenting research posters in Panama">
+      <div class="cap">
+        <h2>Four Pioneer students. Panama City.</h2>
+        <p class="sub">June 2026 &mdash; the GCSE International Science Fair. All four went on full scholarships.</p>
+      </div>
+    </section>
+
+    <!-- 17 · Panama: canal boat -->
+    <section class="slide s-img">
+      <img src="photos/panama-boat.jpg" alt="Students on a boat on the Panama Canal">
+      <div class="cap">
+        <h2>A week they won&rsquo;t forget</h2>
+        <p class="sub">A boat through the Panama Canal. For some, a first trip out of the country.</p>
+      </div>
+    </section>
+
+    <!-- 18 · Panama: monkey -->
+    <section class="slide s-img">
+      <img src="photos/panama-monkey.jpg" alt="A monkey in the Panama rainforest">
+      <div class="cap">
+        <h2>Fieldwork, rainforest edition</h2>
+        <p class="sub">One of three monkey species the crew spotted that week.</p>
+      </div>
+    </section>
+
+    <!-- 19 · Panama: the wins -->
+    <section class="slide s-img">
+      <img src="photos/panama-awards.jpg" alt="The four UC Davis EnvironMentors students with their award certificates in Panama">
+      <div class="cap">
+        <h2>And they won.</h2>
+        <p class="sub">Anna Callens: <b>first place overall</b> &mdash; the top award of the entire international fair. Bareera Rehman: <b>Best Presentation</b>.</p>
+      </div>
+    </section>
+
+    <!-- 20 · NYC -->
+    <section class="slide s-img">
+      <img src="photos/nyc-skyline.jpg" alt="The Lower Manhattan skyline at dusk">
+      <div class="cap">
+        <h2>Next stop: New York City.</h2>
+        <p class="sub">The next international fair &mdash; <b>New York City, September&nbsp;2027</b>. Every student presents at a virtual showcase; some earn the trip.</p>
+      </div>
+    </section>
+
+    <!-- 21 · Fine print -->
+    <section class="slide s-text"><div class="wrap">
+      <div class="eyebrow">The fine print</div>
+      <h2>How it works</h2>
+      <ul>
+        <li><b>Wednesdays 3&ndash;5&nbsp;pm</b> at UC&nbsp;Davis (PES Building, Room 2005), September&ndash;May. Free.</li>
+        <li><b>First session: Wednesday, September&nbsp;23</b> &mdash; campus tour and bowling.</li>
+        <li>By winter you work <b>1-on-1 with your mentor</b> and scheduling gets flexible &mdash; it works around sports. Track athletes have done this program.</li>
+        <li><b>Sophomores and juniors especially</b> &mdash; seniors welcome too.</li>
+      </ul>
+    </div></section>
+
+    <!-- 22 · QR close -->
+    <section class="slide s-text"><div class="wrap" style="max-width:min(1500px,94vw)">
+      <div class="close-grid">
+        <div>
+          <h2>Drop your info.</h2>
+          <p>Scan the code and leave your name &mdash; we&rsquo;ll loop you in when registration opens.</p>
+          <div class="accent"></div>
+          <p class="small">Questions? <b>gmonroe@ucdavis.edu</b></p>
+        </div>
+        <div class="qrbox">
+          <img src="data:image/png;base64,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" alt="QR code linking to the EnvironMentors interest form">
+          <div class="u">environmentors.ucdavis.edu</div>
+        </div>
+      </div>
+    </div></section>
+
+  </div>
+  <script>
+    var d=document.getElementById('deck');function step(n){d.scrollBy({left:n*innerWidth,behavior:'smooth'})}
+    function fs(){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+    onkeydown=function(e){if(['ArrowRight',' ','PageDown'].includes(e.key)){e.preventDefault();step(1)}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();step(-1)}if(e.key==='f'||e.key==='F')fs()}
+    d.addEventListener('click',function(e){if(e.target.closest('a'))return;step(e.clientX<innerWidth*0.2?-1:1)})
+  </script>
+</body></html>
