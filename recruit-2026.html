@@ -39,6 +39,11 @@
   .dense .cite{font-size:clamp(1rem,1.3vw,1.5rem)}
   .s-img .g4{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;background:#2a2622}
   .s-img .g4 img{position:static;width:100%;height:100%;object-fit:cover;min-width:0;min-height:0}
+  .s-img .g3{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:#2a2622}
+  .s-img .g3 figure{position:relative;margin:0;min-width:0;overflow:hidden}
+  .s-img .g3 img{position:static;width:100%;height:100%;object-fit:cover}
+  .s-img .g3 figcaption{position:absolute;top:16px;left:16px;background:rgba(20,17,14,.6);color:#fff;
+    padding:.4em .8em;border-radius:4px;font-size:clamp(.95rem,1.3vw,1.5rem);letter-spacing:.02em}
   .card.pcard{padding:0;overflow:hidden;display:flex}
   .card.pcard img{width:100%;height:100%;object-fit:cover;min-height:180px}
   .split{display:flex;gap:3vw;align-items:center}
@@ -173,6 +178,19 @@
       <div class="cap">
         <h2>Your own UC&nbsp;Davis mentor</h2>
         <p class="sub">You&rsquo;re paired 1-on-1 with a graduate student who does this for a living.</p>
+      </div>
+    </section>
+
+    <!-- 11b · Meet some mentors -->
+    <section class="slide s-img">
+      <div class="g3">
+        <figure><img src="photos/mentor-kekoa.jpg" alt="Kekoa Nelson lighting a prescribed burn with a drip torch"><figcaption>Kekoa &middot; fire ecology</figcaption></figure>
+        <figure><img src="photos/mentor-maya.jpg" alt="Maya Shydlowski working with plants in a UC Davis greenhouse"><figcaption>Maya &middot; agroecology</figcaption></figure>
+        <figure><img src="photos/mentor-matt.jpg" alt="Matt Davis, UC Davis Plant Biology PhD student"><figcaption>Matt &middot; plant genomics</figcaption></figure>
+      </div>
+      <div class="cap">
+        <h2>Your mentors, at work</h2>
+        <p class="sub">Grad students from labs across campus &mdash; fire, farms, genomes. One of them will be yours.</p>
       </div>
     </section>
 
