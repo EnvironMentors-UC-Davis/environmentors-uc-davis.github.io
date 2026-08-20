@@ -7,6 +7,15 @@
 <meta property="og:description" content="Real environmental research. With a UC Davis scientist. For a year.">
 <meta property="og:image" content="photos/group-fair.jpg">
 <link rel="stylesheet" href="site.css">
+<style>
+  .btn.share{background:transparent;color:var(--accent);border:1.5px solid var(--accent);display:inline-flex;align-items:center;gap:8px}
+  .share-menu{position:absolute;z-index:50;background:#fff;border:1px solid #e2d9cc;border-radius:6px;
+    box-shadow:0 10px 30px rgba(42,38,34,.18);padding:6px;display:none;min-width:200px}
+  .share-menu.open{display:block}
+  .share-menu a,.share-menu button{display:block;width:100%;text-align:left;background:none;border:0;cursor:pointer;
+    font:inherit;font-size:15px;color:#2a2622;text-decoration:none;padding:10px 14px;border-radius:4px}
+  .share-menu a:hover,.share-menu button:hover{background:#f6f2ec}
+</style>
 </head>
 <body>
 
@@ -27,10 +36,41 @@
   <div class="eyebrow">UC Davis &middot; A GCSE Chapter</div>
   <h1 class="serif">Real research. With a <em>UC&nbsp;Davis scientist.</em> For a year.</h1>
   <p class="lede">EnvironMentors pairs Sacramento-area high schoolers with UC&nbsp;Davis researchers for a year of real science. You pick a question you care about, anything from ecology to agriculture to human health, and your mentor helps you investigate it.</p>
-  <div class="cta-row">
+  <div class="cta-row" style="position:relative">
     <a class="btn" href="#signup">Sign up for more info</a>
+    <button class="btn share" id="shareBtn" type="button" aria-haspopup="true">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/></svg>
+      Share
+    </button>
+    <div class="share-menu" id="shareMenu" role="menu">
+      <a href="sms:?&body=Check%20out%20UC%20Davis%20EnvironMentors%20%E2%80%94%20a%20free%20year%20of%20real%20environmental%20research%20with%20a%20UC%20Davis%20mentor%3A%20https%3A%2F%2Fenvironmentors.ucdavis.edu">Text message</a>
+      <a href="https://wa.me/?text=Check%20out%20UC%20Davis%20EnvironMentors%20%E2%80%94%20a%20free%20year%20of%20real%20environmental%20research%20with%20a%20UC%20Davis%20mentor%3A%20https%3A%2F%2Fenvironmentors.ucdavis.edu" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="mailto:?subject=UC%20Davis%20EnvironMentors&body=Check%20out%20UC%20Davis%20EnvironMentors%20%E2%80%94%20a%20free%20year%20of%20real%20environmental%20research%20with%20a%20UC%20Davis%20mentor%3A%20https%3A%2F%2Fenvironmentors.ucdavis.edu">Email</a>
+      <button type="button" id="copyLink">Copy link</button>
+    </div>
     <span class="note">Free. No experience needed. For high schoolers and the researchers who want to mentor them.</span>
   </div>
+  <script>
+  (function(){
+    var btn=document.getElementById('shareBtn'), menu=document.getElementById('shareMenu');
+    var data={title:'UC Davis EnvironMentors',
+              text:'Check out UC Davis EnvironMentors — a free year of real environmental research with a UC Davis mentor.',
+              url:'https://environmentors.ucdavis.edu'};
+    btn.addEventListener('click',function(e){
+      if(navigator.share){ navigator.share(data).catch(function(){}); return; }
+      menu.classList.toggle('open');
+      menu.style.top=(btn.offsetTop+btn.offsetHeight+8)+'px';
+      menu.style.left=btn.offsetLeft+'px';
+      e.stopPropagation();
+    });
+    document.addEventListener('click',function(e){ if(!menu.contains(e.target)) menu.classList.remove('open'); });
+    document.getElementById('copyLink').addEventListener('click',function(){
+      (navigator.clipboard?navigator.clipboard.writeText(data.url):Promise.reject()).then(function(){
+        document.getElementById('copyLink').textContent='Copied!';
+      },function(){ window.prompt('Copy this link:',data.url); });
+    });
+  })();
+  </script>
 </section>
 
 <div class="heroimg wrap">
