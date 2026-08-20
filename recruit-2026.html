@@ -39,6 +39,10 @@
   .dense .cite{font-size:clamp(1rem,1.3vw,1.5rem)}
   .s-img .g4{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;background:#2a2622}
   .s-img .g4 img{position:static;width:100%;height:100%;object-fit:cover;min-width:0;min-height:0}
+  .s-img .g6{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;background:#2a2622}
+  .s-img .g6 img{position:static;width:100%;height:100%;object-fit:cover;min-width:0;min-height:0}
+  .s-img img.clip{position:absolute;left:auto;right:4vw;top:50%;bottom:auto;width:auto;height:80vh;max-width:38vw;object-fit:contain;
+    transform:translateY(-50%) rotate(2deg);border:6px solid #fff;box-shadow:0 14px 44px rgba(0,0,0,.5)}
   .s-img .g3{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:#2a2622}
   .s-img .g3 figure{position:relative;margin:0;min-width:0;overflow:hidden}
   .s-img .g3 img{position:static;width:100%;height:100%;object-fit:cover}
@@ -264,21 +268,19 @@
       </div>
     </section>
 
-    <!-- 17 · Panama: canal boat -->
+    <!-- 17 · Panama collage -->
     <section class="slide s-img">
-      <img src="photos/panama-boat.jpg" alt="Students on a boat on the Panama Canal">
-      <div class="cap">
-        <h2>The Panama Canal</h2>
-        <p class="sub">A boat through the Panama Canal. For some, a first trip out of the country.</p>
+      <div class="g6">
+        <img src="photos/panama-boat.jpg" alt="Students on a boat on the Panama Canal">
+        <img src="photos/panama-monkey.jpg" alt="A monkey in the Panama rainforest">
+        <img src="photos/panama-121.jpg" alt="Students celebrating in Panama">
+        <img src="photos/panama-136.jpg" alt="Students in Panama">
+        <img src="photos/panama-051.jpg" alt="The group in Panama">
+        <img src="photos/panama-058.jpg" alt="Students by the Panama City skyline at night">
       </div>
-    </section>
-
-    <!-- 18 · Panama: monkey -->
-    <section class="slide s-img">
-      <img src="photos/panama-monkey.jpg" alt="A monkey in the Panama rainforest">
       <div class="cap">
-        <h2>The rainforest</h2>
-        <p class="sub">One of three monkey species the crew spotted that week.</p>
+        <h2>The week in Panama</h2>
+        <p class="sub">The canal, the rainforest, the city. For some, a first trip out of the country.</p>
       </div>
     </section>
 
@@ -288,6 +290,16 @@
       <div class="cap">
         <h2>And they won.</h2>
         <p class="sub">Anna Callens: <b>first place overall</b> &mdash; the top award of the entire international fair. Bareera Rehman: <b>Best Presentation</b>.</p>
+      </div>
+    </section>
+
+    <!-- 19b · In the news -->
+    <section class="slide s-img">
+      <img src="photos/panama-present.jpg" alt="Anna presenting her research to judges in Panama">
+      <img class="clip" src="photos/daily-democrat-clip.jpg" alt="Daily Democrat article: UC Davis students mentor young researchers through environmental projects">
+      <div class="cap">
+        <h2>Front-page news in Woodland</h2>
+        <p class="sub">The Daily Democrat, June 18, 2026.</p>
       </div>
     </section>
 
