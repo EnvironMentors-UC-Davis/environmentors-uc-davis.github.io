@@ -1,0 +1,370 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EnvironMentors — Mentor Recruitment, Fall 2026</title>
+<meta name="robots" content="noindex">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:#2a2622}
+  .deck{display:flex;height:100vh;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scroll-behavior:smooth}
+  .deck::-webkit-scrollbar{display:none}
+  .slide{flex:0 0 100vw;height:100vh;scroll-snap-align:center;position:relative;display:flex;align-items:center;padding:6vh 6vw}
+  /* text slides */
+  .s-text{background:#f6f2ec}.wrap{max-width:min(1300px,90vw)}
+  .eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:clamp(.9rem,1.4vw,1.6rem);color:#9c8568;margin-bottom:1.3em}
+  h1{font-family:Georgia,serif;font-weight:600;font-size:clamp(3rem,7vw,8.5rem);line-height:1.04;letter-spacing:-.01em;margin:0 0 .4em;max-width:17ch}
+  h2{font-family:Georgia,serif;font-weight:600;font-size:clamp(2.4rem,5.2vw,6rem);line-height:1.05;margin:0 0 .5em}
+  .lead{font-family:Georgia,serif;font-size:clamp(1.5rem,3vw,3.2rem);line-height:1.3;margin:.2em 0 .4em}
+  .s-text p{font-size:clamp(1.3rem,2.3vw,2.5rem);line-height:1.5;max-width:min(58ch,86vw);color:#4a423b}
+  .s-text li{font-size:clamp(1.3rem,2.3vw,2.4rem);line-height:1.45;max-width:min(60ch,86vw);color:#4a423b;margin:.45em 0;margin-left:1.1em}
+  .s-text b{color:#2a2622;font-weight:600}.s-text em{font-style:italic;color:#8a5e3c}
+  .accent{height:3px;width:clamp(46px,4vw,72px);background:#b98a5e;margin:1.1em 0}
+  .small{font-size:clamp(1.05rem,1.6vw,1.8rem);color:#9a8d7e}
+  blockquote{font-family:Georgia,serif;font-style:italic;font-size:clamp(1.4rem,2.6vw,2.9rem);line-height:1.45;color:#4a423b;max-width:min(50ch,86vw);margin:.4em 0}
+  .cite{font-size:clamp(1.05rem,1.6vw,1.8rem);color:#9a8d7e;margin-top:.8em}
+  /* full-bleed image slides */
+  .s-img{padding:0;background:#000}
+  .s-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .s-img .cap{position:absolute;left:0;right:0;bottom:0;padding:14vh 6vw 6vh;color:#fff;
+    background:linear-gradient(0deg,rgba(8,14,10,.86) 0%,rgba(8,14,10,.45) 55%,transparent 100%)}
+  .s-img h2{color:#fff;max-width:22ch}
+  .s-img .sub{font-family:Georgia,serif;font-style:italic;font-size:clamp(1.3rem,2.4vw,2.6rem);color:#e8d9c6}
+  /* team cards */
+  .team{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.5vw,40px);margin:1.2em 0;width:100%}
+  .tcard{background:#fff;padding:clamp(18px,2.2vw,34px);box-shadow:0 4px 18px rgba(42,38,34,.08)}
+  .tcard img.ph{object-fit:cover;font-size:0}
+  .dense h2{font-size:clamp(2rem,4vw,4.2rem)}
+  .dense p{font-size:clamp(1.15rem,1.7vw,1.85rem);line-height:1.5}
+  .dense blockquote{font-size:clamp(1.25rem,2vw,2.2rem)}
+  .dense .cite{font-size:clamp(1rem,1.3vw,1.5rem)}
+  .s-img .g3{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:#2a2622}
+  .s-img .g3 figure{position:relative;margin:0;min-width:0;overflow:hidden}
+  .s-img .g3 img{position:static;width:100%;height:100%;object-fit:cover}
+  .s-img .g3 figcaption{position:absolute;top:16px;left:16px;background:rgba(20,17,14,.6);color:#fff;
+    padding:.4em .8em;border-radius:4px;font-size:clamp(.95rem,1.3vw,1.5rem);letter-spacing:.02em}
+  .s-img img.clip{position:absolute;left:auto;right:4vw;top:50%;bottom:auto;width:auto;height:80vh;max-width:38vw;object-fit:contain;
+    transform:translateY(-50%) rotate(2deg);border:6px solid #fff;box-shadow:0 14px 44px rgba(0,0,0,.5)}
+  .split{display:flex;gap:3vw;align-items:center}
+  .split .txt{flex:1.3;min-width:0}
+  .split img.side{flex:1;max-width:36%;height:auto;box-shadow:0 8px 30px rgba(42,38,34,.18)}
+  @media (max-aspect-ratio:1/1){.split{flex-direction:column}.split img.side{max-width:80%}}
+  .tcard .ph{width:clamp(84px,9vw,140px);height:clamp(84px,9vw,140px);border-radius:50%;background:#e8ddcd;color:#8a5e3c;
+    font-family:Georgia,serif;font-size:clamp(1.8rem,3vw,3.2rem);display:flex;align-items:center;justify-content:center;margin-bottom:.7em}
+  .tcard .nm{font-family:Georgia,serif;font-weight:600;font-size:clamp(1.4rem,2.2vw,2.4rem);line-height:1.15}
+  .tcard .rl{font-size:clamp(1.05rem,1.6vw,1.7rem);color:#8a5e3c;font-style:italic;margin-top:.3em}
+  .tcard .dt{font-size:clamp(1rem,1.4vw,1.5rem);color:#4a423b;margin-top:.5em;line-height:1.35}
+  /* numbered cards */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,28px);width:100%;margin-top:1.2em}
+  .card{background:#fff;padding:clamp(16px,2vw,30px);border-top:3px solid #b98a5e;box-shadow:0 4px 16px rgba(42,38,34,.07)}
+  .card .n{font-family:Georgia,serif;color:#b98a5e;font-size:clamp(1.1rem,1.6vw,1.7rem)}
+  .card .t{font-family:Georgia,serif;font-weight:600;font-size:clamp(1.25rem,1.9vw,2rem);line-height:1.2;margin:.25em 0 .3em}
+  .card .d{font-size:clamp(1rem,1.4vw,1.5rem);line-height:1.4;color:#4a423b}
+  /* live poll */
+  .pollslide{padding:0;background:#11201a}
+  .pollslide iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  /* sticky notes */
+  .s-steps{background:#f1ece2;flex-direction:column;justify-content:center;align-items:flex-start}
+  .s-steps .head{margin-bottom:2.2vh}
+  .s-steps .wall{display:flex;flex-wrap:wrap;gap:clamp(12px,1.8vw,26px);justify-content:center;align-items:stretch;width:100%}
+  .note{width:clamp(180px,21vw,300px);min-height:clamp(160px,19vw,260px);padding:clamp(14px,1.6vw,24px);box-shadow:3px 6px 12px rgba(0,0,0,.16);display:flex;flex-direction:column;justify-content:center}
+  .note .t{font-family:Georgia,serif;font-weight:700;font-size:clamp(1.15rem,1.8vw,1.9rem);line-height:1.2;margin-bottom:.35em}
+  .note .d{font-size:clamp(.95rem,1.3vw,1.4rem);line-height:1.35;opacity:.85}
+  .note:nth-child(1){background:#fde9a6;transform:rotate(-2.5deg)}.note:nth-child(2){background:#cdeacb;transform:rotate(1.5deg)}
+  .note:nth-child(3){background:#bfe0ef;transform:rotate(-1deg)}.note:nth-child(4){background:#f6cfcf;transform:rotate(2deg)}
+  .note:nth-child(5){background:#f7d7ab;transform:rotate(-1.8deg)}
+  /* QR close */
+  .close-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(24px,4vw,70px);align-items:center;width:100%}
+  .qrbox{background:#fff;padding:clamp(16px,1.8vw,28px);box-shadow:0 6px 24px rgba(42,38,34,.12);justify-self:center}
+  .qrbox img{display:block;width:clamp(220px,26vw,420px);height:auto;image-rendering:pixelated}
+  .qrbox .u{text-align:center;font-size:clamp(.95rem,1.3vw,1.4rem);color:#9a8d7e;margin-top:.7em}
+  .bigurl{font-family:Georgia,serif;font-weight:600;font-size:clamp(1.9rem,3.4vw,4rem)!important;color:#2a2622;
+    margin:.5em 0 .6em;line-height:1.1;max-width:none!important}
+  .bigurl span{color:#8a5e3c}
+  @media (max-aspect-ratio:1/1){.team,.cards,.close-grid{grid-template-columns:1fr}}
+</style></head>
+<body>
+  <div class="deck" id="deck">
+
+    <!-- 1 · Title -->
+    <section class="slide s-img">
+      <img src="photos/marie-marissa.jpg" alt="Marissa and her mentor Marie, smiling in the wetlands during bird fieldwork">
+      <div class="cap">
+        <div class="eyebrow" style="color:#e8d9c6">UC Davis EnvironMentors</div>
+        <h2 style="font-size:clamp(3rem,7.5vw,9rem)">Mentor a young researcher.</h2>
+        <p class="sub">One Pioneer High School student, one year, a real research project.</p>
+      </div>
+    </section>
+
+    <!-- 2 · Team -->
+    <section class="slide s-text"><div class="wrap" style="max-width:min(1500px,94vw)">
+      <div class="eyebrow">Who we are</div>
+      <h2>Your leadership team</h2>
+      <div class="team" style="max-width:min(1400px,88vw)">
+        <div class="tcard"><img class="ph" src="photos/team-grey.jpg" alt="Grey Monroe">
+          <div class="nm">Grey Monroe</div><div class="rl">Co-Director</div>
+          <div class="dt">Professor, Plant Sciences. Was an EnvironMentors mentor himself as a student.</div></div>
+        <div class="tcard"><img class="ph" src="photos/team-erwan.jpg" alt="Erwan Monier">
+          <div class="nm">Erwan Monier</div><div class="rl">Co-Director</div>
+          <div class="dt">Professor and climate scientist.</div></div>
+        <div class="tcard"><img class="ph" src="photos/team-anne.jpg" alt="Anne Borger">
+          <div class="nm">Anne Borger</div><div class="rl">Program Coordinator</div>
+          <div class="dt">Back for a second year running the program week to week.</div></div>
+      </div>
+      <div class="accent"></div>
+      <p class="small" style="display:flex;align-items:center;gap:.8em">
+        <img src="photos/gcse-logo.png" alt="Global Council for Science and the Environment (GCSE)" style="height:clamp(28px,3vw,44px);width:auto">
+        UC Davis is a chapter of EnvironMentors, a national program of the Global Council for Science and the Environment.
+      </p>
+    </div></section>
+
+    <!-- 3 · Meet some mentors -->
+    <section class="slide s-img">
+      <div class="g3" style="grid-template-columns:repeat(5,1fr)">
+        <figure><img src="photos/mentor-kekoa.jpg" alt="Kekoa Nelson lighting a prescribed burn with a drip torch"><figcaption>Kekoa &middot; fire ecology</figcaption></figure>
+        <figure><img src="photos/mentor-maya.jpg" alt="Maya Shydlowski"><figcaption>Maya &middot; agroecology</figcaption></figure>
+        <figure><img src="photos/mentor-matt.jpg" alt="Matt Davis at a lab bench"><figcaption>Matt &middot; plant genomics</figcaption></figure>
+        <figure><img src="photos/mentor-shabnam.jpg" alt="Shabnam at a mentoring session"><figcaption>Shabnam &middot; plant nutrition</figcaption></figure>
+        <figure><img src="photos/mentor-gal.jpg" alt="Gal Koss"><figcaption>Gal &middot; resource economics</figcaption></figure>
+      </div>
+      <div class="cap">
+        <h2>Mentors come from labs all over campus.</h2>
+        <p class="sub">Any department, any field.</p>
+      </div>
+    </section>
+
+    <!-- 4 · Mentor testimonials (condensed) -->
+    <section class="slide s-text dense"><div class="wrap" style="max-width:min(1500px,94vw)">
+      <div class="eyebrow">From our mentors</div>
+      <h2>In their words</h2>
+      <div class="team" style="grid-template-columns:repeat(4,1fr);max-width:min(1500px,92vw)">
+        <div class="tcard"><img class="ph" src="photos/mentor-kekoa.jpg" alt="Kekoa Nelson">
+          <div class="nm">Kekoa Nelson</div><div class="rl">Fire ecology</div>
+          <div class="dt" style="font-style:italic">&ldquo;Mentors and mentees alike bring valuable perspectives and knowledge into a project, connecting to make fruitful research.&rdquo;</div></div>
+        <div class="tcard"><img class="ph" src="photos/mentor-maya.jpg" alt="Maya Shydlowski">
+          <div class="nm">Maya Shydlowski</div><div class="rl">Agroecology</div>
+          <div class="dt" style="font-style:italic">&ldquo;We get so caught up in research results and chasing the next grant that we forget that part of academia is teaching.&rdquo;</div></div>
+        <div class="tcard"><img class="ph" src="photos/mentor-shabnam.jpg" alt="Shabnam Shabnam">
+          <div class="nm">Shabnam Shabnam</div><div class="rl">Agrivoltaics</div>
+          <div class="dt" style="font-style:italic">&ldquo;Effective mentorship is not only about sharing knowledge but also about building confidence and encouraging critical thinking&hellip;&rdquo;</div></div>
+        <div class="tcard"><img class="ph" src="photos/marie-marissa.jpg" alt="Marie Klein">
+          <div class="nm">Marie Klein</div><div class="rl">Plant Sciences</div>
+          <div class="dt" style="font-style:italic">&ldquo;This group of mentees and mentors, forming this community on campus, is super valuable for anyone.&rdquo;</div></div>
+      </div>
+    </div></section>
+
+    <!-- 5 · Live poll 1 -->
+    <section class="slide pollslide">
+      <iframe src="https://greymonroe.github.io/live-poll-test/display.html?poll=em-mentor-issues" title="Live poll: where can science help" loading="lazy"></iframe>
+    </section>
+
+    <!-- 6 · Live poll 2 -->
+    <section class="slide pollslide">
+      <iframe src="https://greymonroe.github.io/live-poll-test/display.html?poll=em-mentor-places" title="Live poll: UC Davis places for a research project" loading="lazy"></iframe>
+    </section>
+
+    <!-- 7 · What you get out of it -->
+    <section class="slide s-text dense"><div class="wrap" style="max-width:min(1500px,94vw)">
+      <div class="eyebrow">What you get</div>
+      <h2>What you get</h2>
+      <div class="cards">
+        <div class="card"><div class="n">01</div><div class="t">A real mentoring relationship</div><div class="d">One Pioneer High School student, one year.</div></div>
+        <div class="card"><div class="n">02</div><div class="t">Course credit &mdash; PLS 297T</div><div class="d">1&ndash;5 units, Wed 3:10&ndash;5&nbsp;pm, PES 3001. Open to graduate standing, instructor consent (Grey Monroe).</div></div>
+        <div class="card"><div class="n">03</div><div class="t">Certificate &amp; letter</div><div class="d">A certificate of completion and a letter documenting your role and experience.</div></div>
+      </div>
+      <div class="accent"></div>
+      <blockquote>&ldquo;She had her own project idea, and I've been following her lead on it. She comes to every meeting more and more prepared. It's amazing to watch how her scientific muscle is growing.&rdquo;</blockquote>
+      <p class="cite">Gal Koss &middot; UC Davis mentor, environmental &amp; natural resource economics</p>
+    </div></section>
+
+    <!-- 8 · Expectations -->
+    <section class="slide s-text"><div class="wrap">
+      <div class="eyebrow">What it takes</div>
+      <h2>Mentor expectations</h2>
+      <ul>
+        <li><b>Wednesdays, 3&ndash;5&nbsp;pm</b>, September through May &mdash; the full school year.</li>
+        <li><b>Show up consistently.</b> Your mentee counts on you as their one steady partner &mdash; only apply if you can see the year through.</li>
+        <li><b>Youth Protection clearance before any 1-on-1 contact:</b> a background check, CANRA (mandated-reporter) training, and a safety training, plus a signed code of conduct. We walk you through every step &mdash; just budget some lead time.</li>
+        <li><b>Support provided:</b> program structure, a project framework, and a leadership team to lean on.</li>
+      </ul>
+    </div></section>
+
+    <!-- 9 · What your mentee will care about -->
+    <section class="slide s-text"><div class="wrap">
+      <div class="eyebrow">From this year's applicants</div>
+      <h2>What your mentee will care about</h2>
+      <p>29 Pioneer High School students applied for 2026&ndash;27. Asked what environmental issue worries or interests them most:</p>
+      <ul>
+        <li><b>Pollution &amp; human health</b></li>
+        <li><b>Wildlife &amp; ecosystems</b></li>
+        <li><b>Water &amp; rivers</b></li>
+        <li><b>Climate &amp; weather</b></li>
+        <li><b>Agriculture &amp; food</b></li>
+      </ul>
+      <div class="accent"></div>
+      <p>Recurring threads in their own words: wildfire smoke and drought, water quality near farmland, and declining insect and wildlife populations close to home.</p>
+    </div></section>
+
+    <!-- 10 · Last year's projects -->
+    <section class="slide s-steps">
+      <div class="head" style="padding-left:2vw">
+        <div class="eyebrow">Last year&rsquo;s projects</div>
+        <h2>What your mentee's project could look like</h2>
+      </div>
+      <div class="wall">
+        <div class="note"><span class="t">Bird diversity</span><span class="d">how development is changing the Sacramento River watershed</span></div>
+        <div class="note"><span class="t">Drinking water</span><span class="d">is water near farmland picking up nitrogen?</span></div>
+        <div class="note"><span class="t">Gravel mining</span><span class="d">mercury in a creek people fish from</span></div>
+        <div class="note"><span class="t">Walnut orchards</span><span class="d">can California&rsquo;s trees handle saltier, drier soils?</span></div>
+        <div class="note"><span class="t">Your mentee's project</span><span class="d">goes here.</span></div>
+      </div>
+    </section>
+
+    <!-- 11 · What you do -->
+    <section class="slide s-img">
+      <img src="photos/student-tomato.jpg" alt="A student working with tomato plants in a UC Davis greenhouse">
+      <div class="cap">
+        <h2>Keep it small. Make it interesting.</h2>
+        <p class="sub">One student, one simple question, one graph by the end. If they can tell a story about why it matters to their community &mdash; and start picturing themselves as a scientist &mdash; that's a win.</p>
+      </div>
+    </section>
+
+    <!-- 12 · Panama: the four -->
+    <section class="slide s-img">
+      <div class="g3" style="grid-template-columns:repeat(4,1fr)">
+        <figure><img src="photos/panama-present.jpg" alt="Anna presenting her gravel-mining research to judges in Panama"><figcaption>Anna</figcaption></figure>
+        <figure><img src="photos/panama-poster.jpg" alt="Bareera with her nitrogen research poster in Panama"><figcaption>Bareera</figcaption></figure>
+        <figure><img src="photos/marissa-panama.jpg" alt="Marissa with her bird-diversity poster in Panama"><figcaption>Marissa</figcaption></figure>
+        <figure><img src="photos/panama-mudasser.jpg" alt="Mudasser with his salt-tolerance-in-walnuts poster in Panama"><figcaption>Mudasser</figcaption></figure>
+      </div>
+      <div class="cap">
+        <h2>Four Pioneer students. Panama City.</h2>
+        <p class="sub">June 2026 &mdash; the GCSE International Science Fair. All four went on full scholarships.</p>
+      </div>
+    </section>
+
+    <!-- 13 · Panama: the wins -->
+    <section class="slide s-img">
+      <img src="photos/panama-awards.jpg" alt="The four UC Davis EnvironMentors students with their award certificates in Panama">
+      <div class="cap">
+        <h2>And they won.</h2>
+        <p class="sub">Anna Callens: <b>first place overall</b> &mdash; the top award of the entire international fair. Bareera Rehman: <b>Best Presentation</b>.</p>
+      </div>
+    </section>
+
+    <!-- 14 · In the news -->
+    <section class="slide s-img">
+      <img src="photos/panama-present.jpg" alt="Anna presenting her research to judges in Panama">
+      <img class="clip" src="photos/daily-democrat-clip.jpg" alt="Daily Democrat article: UC Davis students mentor young researchers through environmental projects">
+      <div class="cap">
+        <h2>Front-page news in Woodland</h2>
+        <p class="sub">The Daily Democrat, June 18, 2026.</p>
+      </div>
+    </section>
+
+    <!-- 15 · Example posters -->
+    <section class="slide s-img">
+      <div class="g3">
+        <figure><img src="posters/callens-2026.jpg" alt="Anna Callens's 2026 research poster"><figcaption>Anna Callens</figcaption></figure>
+        <figure><img src="posters/rehman-2026.jpg" alt="Bareera Rehman's 2026 research poster"><figcaption>Bareera Rehman</figcaption></figure>
+        <figure><img src="posters/bautista-2026.jpg" alt="Marissa Bautista's 2026 research poster"><figcaption>Marissa Bautista</figcaption></figure>
+      </div>
+      <div class="cap">
+        <h2>What a year of mentoring produces</h2>
+        <p class="sub">A real poster, presented at a real science fair.</p>
+      </div>
+    </section>
+
+    <!-- 16 · Live poll 3: pizza vs snacks -->
+    <section class="slide pollslide">
+      <iframe src="https://greymonroe.github.io/live-poll-test/display.html?poll=em-mentor-pizza" title="Live poll: pizza or snacks after sessions" loading="lazy"></iframe>
+    </section>
+
+    <!-- 17 · What's next -->
+    <section class="slide s-text"><div class="wrap">
+      <div class="eyebrow">Next steps</div>
+      <h2>What's next</h2>
+      <ul>
+        <li><b>Scan the QR code</b> (a few slides from now) and leave your name and email.</li>
+        <li><b>Give Grey or Erwan your UCD email</b> so we can submit your background check request.</li>
+        <li><b>Complete CANRA + KYHEPS training</b> online through the UC Learning Center.</li>
+        <li><b>Sign and return the Code of Conduct with Minors.</b></li>
+        <li><b>Register for PLS 297T</b> (1&ndash;5 units) once you're cleared.</li>
+      </ul>
+    </div></section>
+
+    <!-- 18 · Mentor spotlight: Kekoa -->
+    <section class="slide s-text dense"><div class="wrap split" style="max-width:min(1500px,94vw)">
+      <div class="txt">
+        <div class="eyebrow">From a mentor</div>
+        <h2>Kekoa Nelson, PhD student &middot; Ecology, Valliere Lab</h2>
+        <p>Kekoa studies prescribed fire in California's serpentine meadows. Last year she and her mentee Hania tested the heat tolerance of tomato plants using sous vide water baths &mdash; a real research question run on kitchen hardware.</p>
+        <div class="accent"></div>
+        <blockquote>&ldquo;Mentors and mentees alike bring valuable perspectives and knowledge into a project, connecting to make fruitful research.&rdquo;</blockquote>
+        <p class="cite">Kekoa Nelson &middot; UC Davis mentor</p>
+      </div>
+      <img class="side" src="photos/mentor-kekoa.jpg" alt="Kekoa Nelson conducting a prescribed burn with a drip torch">
+    </div></section>
+
+    <!-- 19 · Mentor spotlight: Maya -->
+    <section class="slide s-text dense"><div class="wrap split" style="max-width:min(1500px,94vw)">
+      <div class="txt">
+        <div class="eyebrow">From a mentor</div>
+        <h2>Maya Shydlowski, grad student &middot; Gaudin Agroecology Lab</h2>
+        <p>Maya studies how soil ecosystems and crops hold up when water runs short. She's mentored for two years and is back for a third &mdash; last year co-mentoring a project on nitrate and plastic contamination in local compost.</p>
+        <div class="accent"></div>
+        <blockquote>&ldquo;We get so caught up in research results and chasing the next grant that we forget that part of academia is teaching.&rdquo;</blockquote>
+        <p class="cite">Maya Shydlowski &middot; UC Davis mentor</p>
+      </div>
+      <img class="side" src="photos/mentor-maya.jpg" alt="Maya Shydlowski taking notes in the greenhouse">
+    </div></section>
+
+    <!-- 20 · Mentor spotlight: Shabnam -->
+    <section class="slide s-text dense"><div class="wrap split" style="max-width:min(1500px,94vw)">
+      <div class="txt">
+        <div class="eyebrow">From a mentor</div>
+        <h2>Shabnam Shabnam, PhD student &middot; Agrivoltaics</h2>
+        <p>Shabnam studies growing crops under solar panels, and whether the system holds up environmentally and economically. She's mentored for two years, guiding Bareera Rehman's nitrogen study from a research question to an award-winning poster in Panama.</p>
+        <div class="accent"></div>
+        <blockquote>&ldquo;Effective mentorship is not only about sharing knowledge but also about building confidence, encouraging critical thinking, and creating a supportive environment where students feel comfortable asking questions&hellip;&rdquo;</blockquote>
+        <p class="cite">Shabnam Shabnam &middot; UC Davis mentor</p>
+      </div>
+      <img class="side" src="photos/spotlight-shabnam-bareera.jpg" alt="Shabnam and her mentee Bareera examining water samples together">
+    </div></section>
+
+    <!-- 21 · Mentor testimonial: Marie -->
+    <section class="slide s-text dense"><div class="wrap split" style="max-width:min(1500px,94vw)">
+      <div class="txt">
+        <div class="eyebrow">From a mentor</div>
+        <h2>Marie Klein, postdoc &middot; Plant Sciences</h2>
+        <p>Marie mentored Marissa Bautista through her senior year, guiding a bird-diversity study in the Sacramento River watershed &mdash; after Marissa's junior-year project counting algal cells in the Arboretum waterway. Marissa's work went on to a scholarship at the international science fair in Panama.</p>
+        <div class="accent"></div>
+        <blockquote>&ldquo;I've been in her position where I had to figure out my career and what I wanted to do next. I think a mentorship program, in which I can tell her about my experience and my story, is helpful to make decisions about her career. This group of mentees and mentors, forming this community on campus, is super valuable for anyone.&rdquo;</blockquote>
+        <p class="cite">Marie Klein &middot; UC Davis mentor</p>
+      </div>
+      <img class="side" src="photos/marie-marissa.jpg" alt="Marie Klein and Marissa Bautista during bird-diversity fieldwork in the wetlands">
+    </div></section>
+
+    <!-- 22 · QR close -->
+    <section class="slide s-text"><div class="wrap" style="max-width:min(1500px,94vw)">
+      <div class="close-grid">
+        <div>
+          <h2>Interested?</h2>
+          <p>Scan the code and leave your name &mdash; we'll follow up with next steps, including how to register for PLS&nbsp;297T.</p>
+          <div class="accent"></div>
+          <p class="bigurl">environmentors<span>.ucdavis.edu</span></p>
+          <p class="small">Questions? <b>gmonroe@ucdavis.edu</b> &middot; <b>emonier@ucdavis.edu</b></p>
+        </div>
+        <div class="qrbox">
+          <img src="data:image/png;base64,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" alt="QR code linking to the EnvironMentors interest form">
+          <div class="u">environmentors.ucdavis.edu</div>
+        </div>
+      </div>
+    </div></section>
+
+  </div>
+  <script>
+    var d=document.getElementById('deck');function step(n){d.scrollBy({left:n*innerWidth,behavior:'smooth'})}
+    function fs(){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+    onkeydown=function(e){if(['ArrowRight',' ','PageDown'].includes(e.key)){e.preventDefault();step(1)}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();step(-1)}if(e.key==='f'||e.key==='F')fs()}
+    d.addEventListener('click',function(e){if(e.target.closest('a'))return;step(e.clientX<innerWidth*0.2?-1:1)})
+  </script>
+</body></html>
