@@ -36,7 +36,7 @@
   var bar = document.getElementById('fundbar');
 
   // Countdown: to the 9 a.m. PT Sep 30 opening, then to the close.
-  var OPENS = Date.UTC(2026, 8, 30, 16, 0, 0);   // 2026-09-30 9:00 a.m. PDT
+  var OPENS = Date.UTC(2026, 9, 1, 15, 0, 0);    // 2026-10-01 8:00 a.m. PDT (per the live CFUCD countdown, checked 2026-09-28)
   var CLOSES = Date.UTC(2026, 10, 1, 5, 59, 0);  // 2026-11-01 1:59 a.m. EDT
   var cd = document.getElementById('fb-count');
   function pad(n) { return n < 10 ? '0' + n : '' + n; }
