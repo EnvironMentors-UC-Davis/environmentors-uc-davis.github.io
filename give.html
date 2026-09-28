@@ -34,9 +34,17 @@
   <p class="claim">EnvironMentors is <strong>100% free for students</strong> and <strong>run entirely by volunteers</strong>.</p>
   <p class="intro">This October we are raising money through Crowdfund UC&nbsp;Davis. Our goal is $1,500, and every gift beyond it goes further into the program. Gifts of any size help, starting at $5.</p>
 
+  <div class="countdown" id="countdown" aria-live="polite">
+    <div class="cd-label" id="cd-label">Donations open in</div>
+    <div class="cd-clock" id="cd-clock">
+      <span><b id="cd-d">0</b>days</span><span><b id="cd-h">0</b>hours</span><span><b id="cd-m">0</b>min</span><span><b id="cd-s">0</b>sec</span>
+    </div>
+    <div class="cd-when" id="cd-when">Wednesday, September&nbsp;30 at 9&nbsp;a.m. Pacific</div>
+  </div>
+
   <div class="give-cta">
     <a class="btn big" href="https://giveto.ucdavis.edu/schools/UniversityofCaliforniaDavis/crowdfund-uc-davis-october-2026/pages/environmentors">Donate on Crowdfund UC&nbsp;Davis</a>
-    <p class="fine">The drive opens at 9&nbsp;a.m. on Wednesday, September&nbsp;30 and runs through October&nbsp;31. Before it opens, the page shows a preview.</p>
+    <p class="fine">The drive runs September&nbsp;30 through October&nbsp;31. Before it opens, the donation page shows a preview.</p>
   </div>
 
   <figure>
@@ -109,4 +117,27 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  var OPENS = Date.UTC(2026, 8, 30, 16, 0, 0);  // 2026-09-30 9:00 a.m. PDT
+  var CLOSES = Date.UTC(2026, 10, 1, 5, 59, 0); // 2026-11-01 1:59 a.m. EDT (Oct 31, 10:59 p.m. PDT)
+  var $ = function (id) { return document.getElementById(id); };
+  var box = $('countdown'); if (!box) return;
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+  function tick() {
+    var now = Date.now(), target, label, when;
+    if (now < OPENS) { target = OPENS; label = 'Donations open in'; when = 'Wednesday, September\u00a030 at 9\u00a0a.m. Pacific'; box.className = 'countdown'; }
+    else if (now < CLOSES) { target = CLOSES; label = 'Donations are live! Time left in the drive'; when = 'Ends Saturday, October\u00a031 at 10:59\u00a0p.m. Pacific'; box.className = 'countdown live'; }
+    else { $('cd-label').textContent = 'The October drive has closed. Thank you to everyone who gave!'; $('cd-clock').style.display = 'none'; $('cd-when').textContent = ''; box.className = 'countdown done'; return; }
+    var t = Math.max(0, Math.floor((target - now) / 1000));
+    $('cd-d').textContent = Math.floor(t / 86400);
+    $('cd-h').textContent = pad(Math.floor(t % 86400 / 3600));
+    $('cd-m').textContent = pad(Math.floor(t % 3600 / 60));
+    $('cd-s').textContent = pad(t % 60);
+    $('cd-label').textContent = label; $('cd-when').textContent = when;
+    setTimeout(tick, 1000);
+  }
+  tick();
+})();
+</script>
 </body></html>
