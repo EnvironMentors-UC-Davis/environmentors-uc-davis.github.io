@@ -23,7 +23,7 @@ replacing the old SiteFarm site.
 
 - `index.html` — home / get-involved, with the embedded interest form
 - `faq.html` — audience FAQ (linked in the top nav)
-- `support.html` — giving + broader-impacts case for PIs
+- `support.html` — redirect to `give.html` (merged 2026-09-28; sponsor + PI content now in give.html's collapsible "Other ways to support")
 - `blog.html` — updates / highlights
 - `site.css` — shared stylesheet
 - `STYLE.md` — design/voice notes

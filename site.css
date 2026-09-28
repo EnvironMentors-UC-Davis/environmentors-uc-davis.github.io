@@ -278,3 +278,18 @@ footer .copyright{display:block;width:100%;margin-top:8px;font-size:12px;opacity
 .give .cd-clock b{font-size:40px;line-height:1.1;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
 .give .cd-when{font-size:15px;color:var(--ink2)}
 @media (max-width:480px){.give .cd-clock b{font-size:30px}.give .cd-clock span{min-width:52px}}
+
+.fundbar .fb-count{margin-top:10px;font-size:clamp(15px,1.5vw,18px);font-weight:700;letter-spacing:.4px;color:var(--accent2);font-variant-numeric:tabular-nums}
+.fundbar .fb-count b{font-size:1.35em;color:#fff}
+/* give.html: other ways to support (collapsible) */
+.give .more{margin-top:48px}
+.give .more details{border-top:1px solid var(--line);padding:16px 0}
+.give .more details:last-of-type{border-bottom:1px solid var(--line)}
+.give .more summary{cursor:pointer;font-weight:700;font-size:18px;list-style-position:outside}
+.give .more details[open] summary{margin-bottom:10px}
+.give .more details p,.give .more details li{margin-top:10px}
+.give .more .btn{margin-top:14px}
+.give .more summary{list-style:none;position:relative;padding-right:32px}
+.give .more summary::-webkit-details-marker{display:none}
+.give .more summary::after{content:"+";position:absolute;right:4px;top:-4px;font-size:26px;font-weight:400;color:var(--accent2)}
+.give .more details[open] summary::after{content:"\2212"}
