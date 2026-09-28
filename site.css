@@ -226,3 +226,44 @@ footer .copyright{display:block;width:100%;margin-top:8px;font-size:12px;opacity
 .announce .a-btn:hover{background:#a2751f}
 @media (max-width:720px){.announce{padding:26px 20px 28px;gap:14px}}
 .announce .nb{white-space:nowrap}
+
+/* site-wide fundraising banner (injected by banner.js) */
+.fundbar{position:relative;background:var(--ink);color:#f3ecdc;padding:34px 56px 36px;text-align:center;border-bottom:6px solid var(--accent2)}
+.fundbar .fb-inner{max-width:760px;margin:0 auto}
+.fundbar .fb-head{font-family:"Iowan Old Style","Palatino Linotype",Georgia,"Times New Roman",serif;font-weight:700;
+  font-size:clamp(26px,3.4vw,40px);line-height:1.12;letter-spacing:-.4px;color:#fff}
+.fundbar .fb-msg{font-size:clamp(16px,1.6vw,19px);line-height:1.5;margin-top:12px;color:#e9e1d0}
+.fundbar .fb-actions{display:flex;justify-content:center;align-items:center;gap:26px;flex-wrap:wrap;margin-top:22px}
+.fundbar .fb-donate{display:inline-block;background:var(--accent2);color:#fff;font-weight:800;font-size:18px;
+  padding:15px 46px;border-radius:2px;text-decoration:none;letter-spacing:.4px;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.fundbar .fb-donate:hover{background:#a2751f}
+.fundbar .fb-why{color:#f3ecdc;font-weight:600;font-size:16px;text-decoration:underline;text-underline-offset:3px}
+.fundbar .fb-why:hover{color:#fff}
+.fundbar .fb-close{position:absolute;top:10px;right:14px;background:none;border:0;color:#cdbf9f;font-size:30px;line-height:1;cursor:pointer;padding:6px 10px}
+.fundbar .fb-close:hover{color:#fff}
+@media (max-width:720px){.fundbar{padding:30px 20px 28px}.fundbar .fb-donate{padding:14px 38px}.fundbar .fb-actions{gap:18px}}
+
+/* nav: Give link */
+.top .nav a.give{color:var(--accent2);font-weight:800}
+
+/* give page */
+.give .claim{font-size:clamp(19px,2.1vw,24px);color:var(--ink);margin-top:18px;line-height:1.4}
+.give .claim strong{color:var(--accent);font-weight:700}
+.give .btn.big{background:var(--accent2);font-size:18px;font-weight:800;padding:17px 48px;margin-top:26px}
+.give .btn.big:hover{background:#a2751f}
+.give .give-cta{margin-top:10px}
+.give .give-cta .fine{font-size:14px;color:var(--ink2);margin-top:12px}
+.give figure{margin:38px 0 6px}
+.give figure img{width:100%;border-radius:3px}
+.give figcaption{font-size:12.5px;color:var(--ink2);margin-top:9px}
+.give .uses{margin:16px 0 0;padding:0;list-style:none}
+.give .uses li{padding:14px 0;border-top:1px solid var(--line);font-size:16px;color:var(--ink2)}
+.give .uses li strong{color:var(--ink)}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.tier{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:20px 20px 22px;text-decoration:none;color:var(--ink);display:block}
+.tier:hover{border-color:var(--accent2)}
+.tier .amt{font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;font-size:34px;color:var(--accent);letter-spacing:-.5px}
+.tier p{font-size:15px;margin-top:6px}
+.give .note{font-size:14px;color:var(--ink2);margin-top:16px}
+@media(max-width:760px){.tiers{grid-template-columns:1fr 1fr}}
+@media(max-width:460px){.tiers{grid-template-columns:1fr}}
