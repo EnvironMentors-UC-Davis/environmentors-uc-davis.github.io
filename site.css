@@ -293,3 +293,9 @@ footer .copyright{display:block;width:100%;margin-top:8px;font-size:12px;opacity
 .give .more summary::-webkit-details-marker{display:none}
 .give .more summary::after{content:"+";position:absolute;right:4px;top:-4px;font-size:26px;font-weight:400;color:var(--accent2)}
 .give .more details[open] summary::after{content:"\2212"}
+
+.wish-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:34px}
+.wish-cat{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:18px 20px 16px}
+.page .wish-cat h2{font-size:17px;margin:0 0 8px;color:var(--accent)}
+.wish-cat ul{margin:0;padding:0 0 0 18px}
+.wish-cat li{font-size:15px;color:var(--ink2);padding:3px 0}
