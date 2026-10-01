@@ -1,0 +1,15 @@
+Photo credits for photos/email/ (used in program emails; all from Wikimedia Commons, resized/cropped)
+
+arb-waterway-path.jpg
+  "Arboretum, UC Davis" by Bev Sykes from Davis, CA, USA, CC BY 2.0
+  https://commons.wikimedia.org/wiki/File:Arboretum,_UC_Davis.jpg
+  https://creativecommons.org/licenses/by/2.0
+
+arb-egret.jpg
+  "A Snowy Egret spotted in the UC-Davis Arboretum" by Nikolai Gates Vetr, CC BY-SA 4.0 (cropped)
+  https://commons.wikimedia.org/wiki/File:A_Snowy_Egret_spotted_in_the_UC-Davis_Arboretum.jpg
+  https://creativecommons.org/licenses/by-sa/4.0
+
+arb-ducks-bridge.jpg
+  "UC Davis arboretum - ducks" by Daderot, public domain
+  https://commons.wikimedia.org/wiki/File:UC_Davis_arboretum_-_ducks.jpg
