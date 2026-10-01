@@ -299,3 +299,8 @@ footer .copyright{display:block;width:100%;margin-top:8px;font-size:12px;opacity
 .page .wish-cat h2{font-size:17px;margin:0 0 8px;color:var(--accent)}
 .wish-cat ul{margin:0;padding:0 0 0 18px}
 .wish-cat li{font-size:15px;color:var(--ink2);padding:3px 0}
+
+/* resources page */
+.res-cat li{line-height:1.45}
+.res-cat li a{font-weight:600;color:var(--accent);text-decoration:none}
+.res-cat .idea{display:block;font-size:13.5px;font-style:italic;color:var(--ink3,var(--ink2));opacity:.85}
